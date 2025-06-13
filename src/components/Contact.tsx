@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Mail, Github, Linkedin } from 'lucide-react';
 
@@ -9,7 +8,8 @@ const Contact = () => {
       label: 'Gmail',
       value: 'renzo.gabrielch@gmail.com',
       href: 'mailto:renzo.gabrielch@gmail.com',
-      color: 'text-red-500'
+      fillColor: 'bg-red-500',
+      iconColor: 'text-red-500'
     },
     {
       icon: () => (
@@ -20,21 +20,24 @@ const Contact = () => {
       label: 'WhatsApp',
       value: '+34 624 36 63 25',
       href: 'https://wa.me/34624366325',
-      color: 'text-green-500'
+      fillColor: 'bg-green-500',
+      iconColor: 'text-green-500'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       value: 'linkedin.com/in/renzogabriel04/',
       href: 'https://www.linkedin.com/in/renzogabriel04/',
-      color: 'text-blue-600'
+      fillColor: 'bg-blue-600',
+      iconColor: 'text-blue-600'
     },
     {
       icon: Github,
       label: 'GitHub',
       value: 'github.com/Renzo0410',
       href: 'https://github.com/Renzo0410',
-      color: 'text-gray-700'
+      fillColor: 'bg-gray-800',
+      iconColor: 'text-gray-700'
     }
   ];
 
@@ -61,20 +64,41 @@ const Contact = () => {
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  className="relative overflow-hidden bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className={`${method.color} group-hover:scale-110 transition-transform duration-200`}>
+                  {/* Liquid fill effect */}
+                  <div 
+                    className={`absolute inset-0 ${method.fillColor} transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out`}
+                    style={{
+                      clipPath: 'polygon(0 20px, 100% 0, 100% 100%, 0 100%)'
+                    }}
+                  />
+                  
+                  {/* Animated waves effect */}
+                  <div 
+                    className={`absolute inset-0 ${method.fillColor} opacity-60 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out delay-100`}
+                    style={{
+                      clipPath: 'polygon(0 30px, 100% 10px, 100% 100%, 0 100%)'
+                    }}
+                  />
+                  
+                  <div className="relative z-10 flex items-center gap-4">
+                    <div className={`${method.iconColor} group-hover:text-white group-hover:scale-110 transition-all duration-300 transform group-hover:drop-shadow-lg`}>
                       <IconComponent />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-1">
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-white transition-colors duration-300 mb-1">
                         {method.label}
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground group-hover:text-white/90 transition-colors duration-300">
                         {method.value}
                       </p>
                     </div>
+                  </div>
+                  
+                  {/* Ripple effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    <div className={`absolute top-1/2 left-1/2 w-0 h-0 ${method.fillColor} rounded-full group-hover:w-96 group-hover:h-96 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out`} />
                   </div>
                 </a>
               );
@@ -86,25 +110,6 @@ const Contact = () => {
               &copy; 2025 Renzo Gabriel
             </p>
           </div>
-          
-
-          {/* <div className="text-center mt-12">
-            <div className="bg-card rounded-lg p-8 shadow-lg">
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                ¿Prefieres enviar un mensaje directo?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                También puedes escribirme directamente y te responderé lo antes posible.
-              </p>
-              <a
-                href="mailto:contacto@miportafolio.com"
-                className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
-              >
-                Enviar Email
-              </a>
-            </div>
-          </div> */}
-
         </div>
       </div>
     </section>
