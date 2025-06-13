@@ -32,7 +32,7 @@ const Hero = () => {
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button
           onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
+          className="border-black border text-foreground px-8 py-3 rounded-lg hover:bg-muted transition-colors duration-200 font-medium"
         >
           Ver Proyectos
         </button>
@@ -47,7 +47,7 @@ const Hero = () => {
         <a
           href="/cv/RenzoGabriel_CV.pdf" // asegúrate de tener este archivo en la carpeta public/cv/
           download
-          className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
+          className="border-black border text-foreground px-8 py-3 rounded-lg hover:bg-muted transition-colors duration-200 font-medium"
         >
           Descargar CV
         </a>
