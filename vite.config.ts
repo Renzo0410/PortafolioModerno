@@ -5,8 +5,6 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/PortafolioModerno", // 👈 AGREGA ESTA LÍNEA
-
   server: {
     host: "::",
     port: 8080,
